@@ -7,7 +7,14 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        pass
+        self.data = data
+        self.next_node = next_node
+
+    def __str__(self):
+        return f'{self.data}, {self.next_node}'
+
+    def __repr__(self):
+        return f'Node({self.data}, {self.next_node})'
 
 
 class Stack:
