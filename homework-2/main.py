@@ -1,6 +1,10 @@
 from src.stack import Node, Stack
 
 if __name__ == '__main__':
+    #
+    #  НАЧАЛО программы
+    #
+
     print('\nРабота со стеком (Домашняя работа № 2)\n'.upper())
     print('1-ая часть: \n')
     stack = Stack()
@@ -34,3 +38,7 @@ if __name__ == '__main__':
 
     # данные удаленного элемента
     assert data == 'data2'
+
+    #
+    #  КОНЕЦ программы
+    #
