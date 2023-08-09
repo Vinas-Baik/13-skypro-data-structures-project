@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print(f'-> Стек: {stack.print_stack()}')
 
     # теперь последний элемента содержит данные data1
-    assert stack.top().data == 'data1'
+    assert stack.top.data == 'data1'
 
     # данные удаленного элемента
     assert data == 'data2'
