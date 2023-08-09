@@ -27,12 +27,15 @@ class Stack:
 
     # возвращаем последний элемент списка
     def top(self):
-        return Stack.all[-1]
+        if Stack.all == []:
+            return None
+        else:
+            return Stack.all[-1]
 
 
     def __init__(self):
         """Конструктор класса Stack"""
-        pass
+        Stack.all = []
 
     def push(self, data):
         """
@@ -51,7 +54,8 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        return Stack.all.pop(-1)
+        if Stack.all != []:
+            return Stack.all.pop(-1)
 
     def print_stack(self):
         """
