@@ -14,6 +14,7 @@ def test_Node():
 
 def test_Stack():
     stack = Stack()
+    assert stack.all == []
     assert stack.print_stack() == 'пустой'
     stack.push('data1')
     assert stack.print_stack() == 'data1'
