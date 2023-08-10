@@ -45,8 +45,10 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        if Queue.all != []:
-            return Queue.all.pop(0)
+        # if Queue.all != []:
+        #     return Queue.all.pop(0)
+        # pass
+
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
@@ -58,24 +60,21 @@ class Queue:
 
     def print_queue(self) -> str:
         """Магический метод для строкового представления объекта"""
-        # result = ''
-        # if Queue.all != []:
-        #     result = '\n'.join([temp_q.data for temp_q in Queue.all])
         if Queue.all == []:
             return 'пустая'
         return ' -> '.join([temp_q.data for temp_q in Queue.all])
 
     def head(self) -> Node:
         if Queue.all == []:
-            return Node('')
+            return None
         return Queue.all[0]
 
     def tail(self) -> Node:
         if Queue.all == []:
-            return Node('')
+            return None
         return Queue.all[-1]
 
-queue = Queue()
+# queue = Queue()
 
 # print(f'Очередь: {Queue()}')
 # print(f'Очередь: {queue}')
@@ -83,7 +82,7 @@ queue = Queue()
 # Добавляем данных в очередь
 # queue.enqueue('data1')
 # # print()
-# # print(f'Очередь: \n{queue.__repr__()}')
+# print(f'Очередь: \n{queue.__repr__()}')
 # # print()
 # queue.enqueue('data2')
 # # print()
