@@ -7,14 +7,14 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     def __str__(self):
-        return f'{self.__data} [{self.__next_node}]'
+        return f'{self.data} [{self.next_node if self.next_node != None else ""}]'
 
     def __repr__(self):
-        return f'Node({self.__data} [{self.__next_node}])'
+        return f'Node({self.data} [{self.next_node if self.next_node != None else ""}])'
 
 
 class Queue:
@@ -33,10 +33,10 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        if Queue.all == []:
-            Queue.all.append(Node(data))
-        else:
-            Queue.all.append(Node(data, Queue.all[-1]))
+        temp_node: Node = Node(data)
+        if len(Queue.all) > 0:
+            Queue.all[-1].next_node = temp_node
+        Queue.all.append(temp_node)
 
 
     def dequeue(self) -> Node:
@@ -50,4 +50,51 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        return '\n'.join(temp_q.data for temp_q in Queue.all)
+        return '\n'.join([temp_q.data for temp_q in Queue.all])
+
+    def __repr__(self):
+        """Магический метод для строкового представления объекта"""
+        return '\n'.join([f"{temp_q}" for temp_q in Queue.all])
+
+    def print_queue(self) -> str:
+        """Магический метод для строкового представления объекта"""
+        # result = ''
+        # if Queue.all != []:
+        #     result = '\n'.join([temp_q.data for temp_q in Queue.all])
+        if Queue.all == []:
+            return 'пустая'
+        return ' -> '.join([temp_q.data for temp_q in Queue.all])
+
+    def head(self) -> Node:
+        if Queue.all == []:
+            return Node('')
+        return Queue.all[0]
+
+    def tail(self) -> Node:
+        if Queue.all == []:
+            return Node('')
+        return Queue.all[-1]
+
+queue = Queue()
+
+# print(f'Очередь: {Queue()}')
+# print(f'Очередь: {queue}')
+
+# Добавляем данных в очередь
+# queue.enqueue('data1')
+# # print()
+# # print(f'Очередь: \n{queue.__repr__()}')
+# # print()
+# queue.enqueue('data2')
+# # print()
+# # print(f'Очередь: \n{queue.__repr__()}')
+# # print()
+# queue.enqueue('data3')
+# # print()
+# print(f'Очередь: {queue.print_queue()}')
+# print()
+# print(f'Очередь: \n{queue.__repr__()}')
+# print()
+# print(queue.head().data)
+# print(queue.tail().data)
+# print(queue.head().next_node.data)
