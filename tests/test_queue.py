@@ -26,6 +26,12 @@ class TestArrs(unittest.TestCase):
         self.assertEqual(queue.all[-1].data, queue.tail().data)
         self.assertEqual(queue.all[0].data, queue.head().data)
         self.assertEqual(queue.print_queue(), 'data1 -> data2 -> data3')
+        self.assertEqual(queue.dequeue(), 'data1')
+        self.assertEqual(queue.print_queue(), 'data2 -> data3')
+        self.assertEqual(queue.dequeue(), 'data2')
+        self.assertEqual(queue.print_queue(), 'data3')
+        self.assertEqual(queue.dequeue(), 'data3')
+        self.assertEqual(queue.print_queue(), 'пустая')
 
 
 

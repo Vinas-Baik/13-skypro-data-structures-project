@@ -45,8 +45,8 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        # if Queue.all != []:
-        #     return Queue.all.pop(0)
+        if Queue.all != []:
+            return Queue.all.pop(0).data
         # pass
 
 
