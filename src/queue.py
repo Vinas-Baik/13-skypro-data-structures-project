@@ -62,7 +62,7 @@ class Queue:
         """Магический метод для строкового представления объекта"""
         if Queue.all == []:
             return 'пустая'
-        return ' -> '.join([temp_q.data for temp_q in Queue.all])
+        return ' -> '.join([temp_q.data for temp_q in Queue.all[::-1]])
 
     def head(self) -> Node:
         if Queue.all == []:
