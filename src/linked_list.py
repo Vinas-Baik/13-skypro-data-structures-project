@@ -15,7 +15,7 @@ class Node:
         return f'{self.data} [{self.next_node}]'
 
     def __repr__(self):
-        return f'Node({self.data} [{self.next_node}])'
+        return f'Node({self.data}, {self.next_node})'
 
 
 class LinkedList:
