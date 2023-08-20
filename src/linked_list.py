@@ -21,6 +21,7 @@ class Node:
 class LinkedList:
     """Класс для односвязного списка"""
 
+    __slots__ = ('head', 'tail')
     def __init__(self):
         self.head = None
         self.tail = None
