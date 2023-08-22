@@ -48,6 +48,47 @@ class LinkedList:
             temp_node.next_node = Node(data)
             self.tail = temp_node.next_node
 
+    def to_list(self) -> list:
+        """
+        возвращает список с данными, содержащимися в односвязном списке `LinkedList`
+        """
+        t_list = []
+        node = self.head
+        if node is None:
+            return []
+        while node:
+            t_list.append(node.data)
+            node = node.next_node
+        return t_list
+
+    def get_data_by_id(self, id: int):
+        """
+        возвращает первый найденный в `LinkedList` словарь с ключом 'id',
+        значение которого равно переданному в метод значению.
+
+        Добавлен блок `try/except` для перехвата ошибки `TypeError` и
+        печати в консоль сообщения о неподходящем формате данных.
+
+        """
+        t_Node_data = None
+        node = self.head
+        if node is None:
+            return None
+
+        while node:
+            try:
+                if node.data['id'] == id:
+                    t_Node_data = node.data
+            except TypeError:
+                print(f'\t\033[36m{node.data}: \033[31mданные не являются словарем '
+                      f'или в словаре нет id.\033[39m')
+            except KeyError:
+                print(f'\t\033[36m{node.data}: \033[31mданные не являются словарем '
+                      f'или в словаре нет id.\033[39m')
+            node = node.next_node
+        return t_Node_data
+
+
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
         node = self.head
