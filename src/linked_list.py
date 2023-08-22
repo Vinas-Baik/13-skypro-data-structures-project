@@ -27,7 +27,10 @@ class LinkedList:
         self.tail = None
 
     def insert_beginning(self, data: dict) -> None:
-        """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
+        """
+        Принимает данные (словарь) и добавляет узел с этими данными
+        в начало связанного списка
+        """
         if self.head == None:
             self.head = Node(data)
             self.tail = self.head
@@ -37,7 +40,10 @@ class LinkedList:
 
 
     def insert_at_end(self, data: dict) -> None:
-        """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
+        """
+        Принимает данные (словарь) и добавляет узел с этими данными
+        в конец связанного списка
+        """
         if self.head == None:
             self.head = Node(data)
             self.tail = self.head
@@ -50,7 +56,8 @@ class LinkedList:
 
     def to_list(self) -> list:
         """
-        возвращает список с данными, содержащимися в односвязном списке `LinkedList`
+        возвращает список с данными, содержащимися в односвязном списке
+        `LinkedList`
         """
         t_list = []
         node = self.head
@@ -80,10 +87,10 @@ class LinkedList:
                 if node.data['id'] == id:
                     t_Node_data = node.data
             except TypeError:
-                print(f'\t\033[36m{node.data}: \033[31mданные не являются словарем '
+                print(f'\t\033[36m{node.data}:\033[31m данные не являются словарем '
                       f'или в словаре нет id.\033[39m')
             except KeyError:
-                print(f'\t\033[36m{node.data}: \033[31mданные не являются словарем '
+                print(f'\t\033[36m{node.data}:\033[31m данные не являются словарем '
                       f'или в словаре нет id.\033[39m')
             node = node.next_node
         return t_Node_data

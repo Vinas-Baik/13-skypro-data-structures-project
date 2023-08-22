@@ -29,3 +29,19 @@ class TestArrs(unittest.TestCase):
                 ll.insert_at_end(i[0])
 
         self.assertEqual(str(ll), ' 0 -> 1 -> 2 -> 3 -> None')
+
+        ll1 = LinkedList()
+        self.assertEqual(ll1.to_list(), [])
+        self.assertEqual(ll1.get_data_by_id(1), None)
+        for i in [({'id': 1}, True),
+                  ({'id': 2}, False),
+                  ({'id': 3}, False),
+                  ({'id': 0}, True)]:
+            if i[1]:
+                ll1.insert_beginning(i[0])
+            else:
+                ll1.insert_at_end(i[0])
+
+        self.assertEqual(str(ll1), " {'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None")
+        self.assertEqual(str(ll1.get_data_by_id(1)), "{'id': 1}")
+        self.assertEqual(ll.to_list(), [0, 1, 2, 3])
